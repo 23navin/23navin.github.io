@@ -1,12 +1,11 @@
 github_users:
-  - torvalds
-  - alshedivat
+  - 23navin
 
 github_repos:
-  - alshedivat/al-folio
-  - twbs/bootstrap
-  - jekyll/jekyll
-  - jquery/jquery
+  - 23navin/fprime-payload-development
+  - 23navin/esp32-payload-development 
+  - 23navin/pcb-payload-devlopment
+  - chgarner/CubeStep-FS
   - FortAwesome/Font-Awesome
   - jpswalsh/academicons
   - mathjax/MathJax

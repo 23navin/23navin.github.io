@@ -2,50 +2,44 @@
   type: map
   contents:
     - name: Full Name
-      value: Albert Einstein
+      value: Benjamin Navin James
     - name: Date of Birth
-      value: 14th March 1879
+      value: June 23rd, 2001
     - name: Languages
-      value: English, German
+      value: English
 
 - title: Education
   type: time_table
   contents:
-    - title: PhD
-      institution: University of Zurich, Zurich, Switzerland
-      year: 1905
+    - title: Bachelor's
+      institution: California Polytechnic State University, Pomona
+      year: 2023
       description:
-        - Description 1.
-        - Description 2.
+        - Computer Engineering
+        - Magna Cum Laude
         - title: Description 3.
           contents:
             - Sub-description 1.
             - Sub-description 2.
-    - title: Federal teaching diploma
-      institution: Eidgenössische Technische Hochschule, Zurich, Switzerland
-      year: 1900
-      description:
-        - Description 1.
-        - Description 2.
 
-- title: Experience
+- title: Academic Experience
   type: time_table
   contents:
-    - title: Professor of Theoretical Physics
-      institution: Institute for Advanced Study, Princeton University
-      year: 1933 - 1955
+    - title: Flight Systems Engineer
+      institution: CubeSTEP Research Project
+      year: August 2022 - May 2023
       description:
-        - Description 1.
-        - Description 2.
+        - Developed software architecture for a CubeSat which will facilitate a thermal experiment in space. My sub-team developed the software and hardware environment to support the test and communication with the ground station.
         - title: Description 3.
           contents:
             - Sub-description 1.
             - Sub-description 2.
-    - title: Visiting Professor
-      institution: California Institute of Technology, Pasadena, California, US
-      year: 1933
+
+    - title: Secretary
+      institution: IEEE Student Branch, Cal Poly Pomona
+      year: May 2022 - June 2023
       description:
-        - Description 1.
+        - Coordinated projects and events for our members. Interfaced with school administration, student body, and outside sponsors on the club’s behalf.
         - Description 2.
 
     - title: Director
@@ -61,7 +55,7 @@
       institution: University of Zurich, Zurich, Switzerland
       year: 1909 - 1911
 
-- title: Open Source Projects
+- title: Projects
   type: time_table
   contents:
     - title: <a href="https://github.com/alshedivat/al-folio">al-folio</a>
@@ -79,17 +73,24 @@
       items: 
         - Max Planck Medal
 
-- title: Academic Interests
+- title: Technical Experience
   type: nested_list
   contents:
-    - title: Topic 1.
+    - title: Programming Languages
       items: 
-        - Description 1.
-        - Description 2.
-    - title: Topic 2.
+        - Assembly
+        - C
+        - C++
+        - C#
+        - System Verilog
+    - title: Design Tools
       items:
-        - Description 1.
-        - Description 2.
+        - Cadence OrCAD
+        - MATLAB
+        - MPLAB
+        - Xilinx Vitis
+        - Xilinx Vivado
+        - NI LabView
 
 - title: Other Interests
   type: list
