@@ -19,6 +19,10 @@ strong {
   color: var(--global-text-color);
 }
 
+body {
+  font-family: nimbus-sans, sans-serif;
+}
+
 hr {
   border-top: 1px solid var(--global-divider-color);
 }
@@ -302,10 +306,10 @@ blockquote {
 // Social (bottom)
 
 .social {
-  text-align: center;
+  text-align: left;
 
   .contact-icons {
-    font-size: 4rem;
+    font-size: 1.5rem;
 
     a {
       i::before {
@@ -350,9 +354,10 @@ footer.fixed-bottom {
 
 footer.sticky-bottom {
   border-top: 1px solid var(--global-divider-color);
-  padding-top: 40px;
-  padding-bottom: 40px;
-  font-size: 0.9rem;
+
+  padding-top: 1px;
+  padding-bottom: 1px;
+  font-size: 0.8rem;
 }
 
 // CV
