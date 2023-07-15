@@ -96,6 +96,7 @@ blockquote {
 
   .card-title {
     color: var(--global-text-color);
+    //border-bottom: 1px solid var(--global-divider-color);
   }
 
   .card-item {
@@ -175,6 +176,7 @@ blockquote {
   border-bottom: 1px solid var(--global-divider-color);
   background-color: var(--global-bg-color);
   opacity: 0.95;
+  padding: .1rem 1rem;
 }
 
 .navbar .dropdown-menu {
@@ -235,7 +237,7 @@ blockquote {
   .navbar-brand.social {
     padding-bottom: 0;
     padding-top: 0;
-    font-size: 1.7rem;
+    font-size: 1.2rem;
 
     a {
       i::before {
@@ -355,8 +357,8 @@ footer.fixed-bottom {
 footer.sticky-bottom {
   border-top: 1px solid var(--global-divider-color);
 
-  padding-top: 1px;
-  padding-bottom: 1px;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
   font-size: 0.8rem;
 }
 
@@ -371,7 +373,9 @@ footer.sticky-bottom {
 
     .list-group-item {
       background-color: inherit;
-      border-color: var(--global-divider-color);
+      //border-color: var(--global-divider-color);
+      border-width: 0px;
+      padding: 0.75rem 0rem;
 
       .badge {
         color: var(--global-card-bg-color) !important;
@@ -379,6 +383,10 @@ footer.sticky-bottom {
       }
     }
   }
+}
+
+.col-md-2 {
+  padding-right: 0px;
 }
 
 .table-cv-map {

@@ -1,7 +1,8 @@
 ---
 layout: about
-title: 
+title: about
 permalink: /
+nav: false
 subtitle: Embedded Systems Engineer
 profile:
   align: right

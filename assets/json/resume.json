@@ -1,77 +1,53 @@
 {
-  "basics": {
-    "name": "Albert Einstein",
-    "label": "Scientist",
-    "image": "",
-    "email": "albert@einstein.de",
-    "phone": "(912) 123-4567",
-    "url": "https://alshedivat.github.io/al-folio/",
-    "summary": "A German-born theoretical physicist, widely ranked among the greatest and most influential scientists of all time",
-    "location": {
-      "address": "2712 Broadway St",
-      "postalCode": "CA 94115",
-      "city": "San Francisco",
-      "countryCode": "US",
-      "region": "California"
-    },
-    "profiles": [
-      {
-        "network": "Twitter",
-        "username": "AlbertEinstein",
-        "url": "https://twitter.com/AlbertEinstein"
-      }
-    ]
-  },
   "work": [
     {
-      "name": "Institute for Advanced Study, Princeton University",
-      "position": "Professor of Theoretical Physics",
-      "url": "https://example.com",
-      "startDate": "1933-01-01",
-      "endDate": "1955-01-01",
-      "summary": "Teaching at Palmer Physical Laboratory (now 302 Frist Campus Center). While not a professor at Princeton, I associated with the physics professors and continued to give lectures on campus.",
+      "name": "Cal Poly Pomona",
+      "position": "Student Assistant",
+      "startDate": "2021",
+      "endDate": "2023",
+      "timePeriod": "2021-2023",
+      "summary": "Responsible for updating alumni and donor database and assisting with office work as needed.",
       "highlights": [
-        "Relativity"
+        //"Relativity"
       ]
-    }
-  ],
-  "volunteer": [],
-  "education": [
-    {
-      "institution": "University of Zurich, Zurich, Switzerland",
-      "url": "https://www.uzh.ch/",
-      "area": "Software Development",
-      "studyType": "PhD",
-      "startDate": "1905-01-01",
-      "endDate": "1905-01-01",
-      "score": "",
-      "courses": [
-        "Theory of Relativity"
-      ]
-    }
-  ],
-  "awards": [
-    {
-      "title": "Nobel Prize in Physics",
-      "date": "1921-11-01",
-      "awarder": "Royal Swedish Academy of Sciences",
-      "summary": "The Nobel Prizes are five separate prizes that, according to Alfred Nobel's will of 1895, are awarded to 'those who, during the preceding year, have conferred the greatest benefit to humankind.'"
-    }
-  ],
-  "certificates": [],
-  "publications": [],
-  "skills": [],
-  "languages": [
-    {
-      "language": "German",
-      "fluency": "Native speaker"
     },
     {
-      "language": "English",
-      "fluency": "Fluent"
+      "name": "Reliable Marine Electronics",
+      "position": "Assistant Technician",
+      "startDate": "2020",
+      "endDate": "2020",
+      "timePeriod": "Summer 2020",
+      "summary": "Installed and repaired marine electronics, such as radars and autopilots, on sailboats and yachts.",
+      "highlights": []
+    },
+    {
+      "name": "Window-Ology Corporation",
+      "position": "Accounts Receivable",
+      "startDate": "2017",
+      "endDate": "2019",
+      "timePeriod": "2017-2019",
+      "summary": "Installed and repaired marine electronics, such as radars and autopilots, on sailboats and yachts.",
+      "highlights": []
+    }
+  ],
+  "education": [
+    {
+      "institution": "California Polytechnic State University, Pomona",
+      "area": "Bachelor's",
+      "studyType": "Computer Engineering",
+      "startDate": "2019",
+      "endDate": "2023",
+      "score": "3.7",
+      "courses": []
+    }
+  ],
+  "projects": [],
+  "volunteer": [],
+  "skills": [
+    {
+      "languages": "C, C"
     }
   ],
   "interests": [],
-  "references": [],
-  "projects": []
+  "references": []
 }
