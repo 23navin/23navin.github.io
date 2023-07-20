@@ -2,10 +2,18 @@
  * Content
  ******************************************************************************/
 
+html, body {
+  /* IE 10-11 didn't like using min-height */
+  height: 100%;
+}
+
 body {
   padding-bottom: 70px;
   color: var(--global-text-color);
   background-color: var(--global-bg-color);
+
+  display: flex;
+  flex-direction: column;
 
   h1, h2, h3, h4, h5, h6 {
     scroll-margin-top: 66px;
@@ -24,6 +32,11 @@ body.sticky-bottom-footer {
 
 .container {
   max-width: $max-content-width;
+  flex: 1 0 auto;
+}
+
+.footer {
+  flex-shrink: 0;
 }
 
 // Profile
