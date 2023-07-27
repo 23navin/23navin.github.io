@@ -27,6 +27,10 @@ hr {
   border-top: 1px solid var(--global-divider-color);
 }
 
+span.line {
+  display: inline-block;
+}
+
 table {
   td,
   th {
@@ -89,6 +93,7 @@ blockquote {
 
 .card {
   background-color: var(--global-card-bg-color);
+  box-shadow: 0 0;
 
   img {
     width: 100%;
@@ -96,7 +101,6 @@ blockquote {
 
   .card-title {
     color: var(--global-text-color);
-    //border-bottom: 1px solid var(--global-divider-color);
   }
 
   .card-item {
@@ -368,21 +372,55 @@ footer.sticky-bottom {
 // CV
 
 .cv {
-  margin-bottom: 40px;
+  //margin-bottom: 40px;
 
   .card {
-    background-color: var(--global-card-bg-color);
-    border: 1px solid var(--global-divider-color);
+    //background-color: var(--global-card-bg-color);
+    //border: 1px solid var(--global-divider-color);
+    padding: 0;
+
+    .card-title {
+      border-bottom: 1px solid var(--global-divider-color);
+    }
 
     .list-group-item {
       background-color: inherit;
       //border-color: var(--global-divider-color);
       border-width: 0px;
-      padding: 0.75rem 0rem;
+      padding: 0 0 0.75rem 0;
 
       .badge {
         color: var(--global-card-bg-color) !important;
         background-color: var(--global-theme-color) !important;
+      }
+    }
+  }
+
+  .section {
+    background-color: var(--global-card-bg-color);
+    box-shadow: 0 0;
+  
+    img {
+      width: 100%;
+    }
+  
+    .section-title {
+      color: var(--global-text-color);
+      border-bottom: 1px solid var(--global-divider-color);
+    }
+  
+    .list-group-item {
+      border-width: 0px;
+      padding: 0 0 0.75rem 0;
+    }
+  
+    .section-item {
+      width: auto;
+      margin-bottom: 10px;
+  
+      .row {
+        display: flex;
+        align-items: center;
       }
     }
   }
@@ -440,6 +478,7 @@ footer.sticky-bottom {
 }
 
 .post-title {
+  margin: 0;
   mjx-container[jax="CHTML"][display="true"] {
     display: unset;
   }
@@ -532,6 +571,7 @@ footer.sticky-bottom {
   .card {
     img {
       width: 100%;
+
     }
   }
 
@@ -557,7 +597,6 @@ footer.sticky-bottom {
     padding-top: 0.5rem;
     margin-top: 2rem;
     margin-bottom: 1rem;
-    text-align: right;
   }
 }
 

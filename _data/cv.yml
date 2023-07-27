@@ -1,13 +1,3 @@
-- title: General Information
-  type: map
-  contents:
-    - name: Full Name
-      value: Benjamin Navin James
-    - name: Date of Birth
-      value: June 23rd, 2001
-    - name: Languages
-      value: English
-
 - title: Education
   type: time_table
   contents:

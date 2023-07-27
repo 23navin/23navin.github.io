@@ -6,10 +6,7 @@
       "startDate": "2021",
       "endDate": "2023",
       "timePeriod": "2021-2023",
-      "summary": "Responsible for updating alumni and donor database and assisting with office work as needed.",
-      "highlights": [
-        //"Relativity"
-      ]
+      "summary": "Responsible for updating alumni and donor database and assisting with office work as needed."
     },
     {
       "name": "Reliable Marine Electronics",
@@ -33,7 +30,7 @@
   "education": [
     {
       "institution": "California Polytechnic State University, Pomona",
-      "area": "Bachelor's",
+      "area": "Bachelor of Science, Magna Cum Laude",
       "studyType": "Computer Engineering",
       "startDate": "2019",
       "endDate": "2023",
@@ -45,7 +42,35 @@
   "volunteer": [],
   "skills": [
     {
-      "languages": "C, C"
+      "name": "Programming Languages",
+      "keywords": [
+        "Assembly",
+        "C",
+        "C++",
+        "C#",
+        "Python",
+        "System Verilog"
+      ]
+    },
+    {
+      "name": "Design Tools",
+      "keywords": [
+        "Cadence Orcad",
+        "MATLAB",
+        "MPLAB",
+        "Xilinx Vitis",
+        "Xilinx Vivado",
+        "NI LabView"
+      ]
+    },
+    {
+      "name": "Test Equipment",
+      "keywords": [
+        "Function Generator",
+        "Multimeter",
+        "Oscilloscope",
+        "Spectrum Analyzer"
+      ]
     }
   ],
   "interests": [],

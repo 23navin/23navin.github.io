@@ -3,20 +3,28 @@
   {% for content in work %}
   <li class="list-group-item">
     <div class="row">
-      <div class="col-xs-2 cl-sm-2 col-md-2 text-left" style="width: 75px;">
-        {% if content.startDate %}
-        {% assign startDate = content.startDate | split: "-" | slice: 0,2 | join: "." %}
-        {% assign endDate   = content.endDate   | split: "-" | slice: 0,2 | join: "." | default: "Present" %}
-        {% assign date = startDate | append: " - "%}
-        {% assign date = date | append: endDate %}
-        {% else %}
-        {% assign date = "" %}
-        {% endif %}
+      <div class="col-xs-2 cl-sm-2 col-md-2 text-center" style="width: 75px;">
 
-        {% assign timePeriod = content.timePeriod %}
-        <span class="<!--badge danger-color-dark--> font-weight-bold <!--text-uppercase--> align-middle" style="min-width: 75px;">
-          <!--{{ date }}-->{{ timePeriod }}
-        </span>
+        <table class="table-cv">
+          <tbody>
+            <tr>
+              <td>
+                <h6 class="font-weight-bold align-middle" style="min-width: 75px;">
+                  {{content.timePeriod}}
+                </h6>
+              </td>
+            </tr>
+            {% if content.location %}
+            <tr>
+              <td>
+                <p class="location"><i class="fas fa-map-marker-alt iconlocation"></i>
+                  {{ content.location }}
+                </p>
+              </td>
+            </tr>
+            {% endif %}
+          </tbody>
+        </table>
       </div>
       <div class="col-xs-10 cl-sm-10 col-md-10 mt-2 mt-md-0">
         <h6 class="title font-weight-bold ml-1 ml-md-4">{{content.position}}</h6>
@@ -30,6 +38,7 @@
           {% endfor %}
         </ul>
       </div>
+
     </div>
   </li>
   {% endfor %}
