@@ -236,6 +236,8 @@ defaults:
       path: "assets"
     values:
       sitemap: false
+  - scope:
+      path: ""
 
 # -----------------------------------------------------------------------------
 # Jekyll Minifier
