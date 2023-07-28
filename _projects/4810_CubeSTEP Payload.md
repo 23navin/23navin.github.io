@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Signals and Systems Labs
+title: CubeSTEP Payload Processor
 description:
 img: 
 importance: 2
