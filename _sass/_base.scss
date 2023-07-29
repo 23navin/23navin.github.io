@@ -162,7 +162,7 @@ blockquote {
   }
 }
 
-.post-description {
+.post-date {
   margin-bottom: 2rem;
   font-size: 0.875rem;
 
@@ -234,7 +234,7 @@ blockquote {
 
   .navbar-nav .nav-item.active>.nav-link {
     background-color: inherit;
-    font-weight: bolder;
+    font-style: italic;
     color: var(--global-theme-color);
 
     &:hover {
@@ -479,6 +479,7 @@ footer.sticky-bottom {
 
 .post-title {
   margin: 0;
+  //border-bottom: 1px solid var(--global-divider-color);
   mjx-container[jax="CHTML"][display="true"] {
     display: unset;
   }
@@ -554,7 +555,6 @@ footer.sticky-bottom {
   }
 }
 
-
 // Projects
 
 .projects {
@@ -562,16 +562,34 @@ footer.sticky-bottom {
     text-decoration: none;
 
     &:hover {
+
       .card-title {
-        color: var(--global-theme-color);
+        margin-left: 2vw;
+
+        transition: all 300ms ease;
+        transition-delay: 200ms;
+      }
+
+      .selector {
+        color: rgb(0, 0, 0);
+
+        transition: all 200ms ease;
+        transition-delay: 300ms;
       }
     }
+  }
+
+  .selector {
+    position:absolute;
+    margin-left: -2vw;
+    color: rgba(0, 0, 0, 0);
+    
+    transition: all 100ms ease;
   }
 
   .card {
     img {
       width: 100%;
-
     }
   }
 
@@ -580,9 +598,24 @@ footer.sticky-bottom {
     margin-bottom: 10px;
 
     .row {
-      display: flex;
+      display: inline-block;
       align-items: center;
     }
+  }
+
+  .card-title {
+    margin-bottom: 0;
+
+    transition: all 100ms ease;
+  }
+
+  .card-body {
+    padding: 0;
+    margin-bottom: 0.75rem;
+  }
+
+  .card-text {
+    margin-left: 2vw;
   }
 
   .grid-sizer,
@@ -591,12 +624,16 @@ footer.sticky-bottom {
     margin-bottom: 10px;
   }
 
-  h2.category {
+  h3.category {
     color: var(--global-divider-color);
     border-bottom: 1px solid var(--global-divider-color);
-    padding-top: 0.5rem;
-    margin-top: 2rem;
-    margin-bottom: 1rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .important {
+    font-size:0.6rem;
+    vertical-align:top;
+    color: var(--global-theme-color);
   }
 }
 
@@ -1004,6 +1041,10 @@ nav[data-toggle="toc"] {
       border-left-color: var(--global-hover-color);
     }
   }
+}
+
+.subactive {
+  font-style: italic;
 }
 
 /* small screens */

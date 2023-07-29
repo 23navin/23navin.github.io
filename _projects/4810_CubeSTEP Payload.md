@@ -3,8 +3,8 @@ layout: page
 title: CubeSTEP Payload Processor
 description:
 img: 
-importance: 2
-category: academic
+importance: 1
+category: Academic
 related_publications:
 ---
 Every project has a beautiful feature showcase page.

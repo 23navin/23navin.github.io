@@ -3,6 +3,13 @@ layout: default
 ---
 <!-- page.html -->
         <div class="post">
+          {%- if page.title != "Projects" -%}
+          <header class="post-header my-3">
+            <h3 class="post-title">{{ page.title }}</h3>
+            <p class="post-date">{{ page.published_date }}</p>
+          </header>
+          {%- endif %}
+          
           
           <article>
             {{ content }}

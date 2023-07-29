@@ -4,7 +4,7 @@ title: Custom Car Headlamp
 description:
 img: 
 importance: 2
-category: personal
+category: Personal
 related_publications:
 ---
 Every project has a beautiful feature showcase page.

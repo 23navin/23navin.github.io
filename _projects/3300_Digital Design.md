@@ -1,10 +1,11 @@
 ---
 layout: page
 title: FPGA Chess Clock
-description:
+description: 
+published_date: May 2022
 img: 
 importance: 2
-category: academic
+category: Academic
 related_publications:
 ---
 Every project has a beautiful feature showcase page.

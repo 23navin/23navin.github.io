@@ -4,7 +4,7 @@ title: Logical Effort & Timing Optimization
 description:
 img: 
 importance: 2
-category: academic
+category: Academic
 related_publications:
 ---
 Every project has a beautiful feature showcase page.
