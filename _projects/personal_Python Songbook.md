@@ -1,9 +1,9 @@
 ---
 layout: page
 title: Python Songbook Creator
-description:
+description: Used Python to generate a PDF songbook from an online song database.
 img: 
-importance: 2
+importance: 1
 category: Personal
 related_publications:
 ---
