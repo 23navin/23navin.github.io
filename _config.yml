@@ -207,6 +207,7 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - vendor
+  - example_projects/
 keep_files:
   - CNAME
   - .nojekyll
@@ -420,3 +421,4 @@ jsonresume:
   - education
   - skills
   - courses
+
