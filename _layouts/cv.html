@@ -46,19 +46,15 @@ layout: default
 
         <a class="anchor" id="{{ data[0] }}"></a>
         <div class="card mt-3">
-          <h3 class="card-title font-weight-medium">{{ data[0] | capitalize }}</h3>
+          <h3 class="card-title font-weight-medium">{{ data[0] }}</h3>
           <div>
           {% case data[0] %}
+          {% when "courses" %}
+            {% include resume/courses.html %}
             {% when "basics" %}
               {% include resume/basics.html %}
             {% when "education" %}
               {% include resume/education.html %}
-            {% when "work" %}
-              {% include resume/work.html %}
-            {% when "volunteer" %}
-              {% include resume/volunteer.html %}
-            {% when "projects" %}
-              {% include resume/projects.html %}
             {% when "awards" %}
               {% include resume/awards.html %}
             {% when "skills" %}
@@ -72,7 +68,7 @@ layout: default
             {% when "certificates" %}
               {% include resume/certificates.html %}
             {% else %}
-
+              {% include resume/default.html %}
           {% endcase %}
           </div>
         </div>

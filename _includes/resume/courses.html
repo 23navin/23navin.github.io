@@ -1,0 +1,35 @@
+<ul class="card-text font-weight-light list-group list-group-flush">
+    {% assign section = data[1] | sort: 'id' | reverse %}
+    {% for content in section %}
+    <li class="list-group-item">
+        <div class="">
+            {% if content.name %}
+            {% assign header = content.name %}
+            {% else %}
+            {% assign header = content.title %}
+            {% endif %}
+
+            {% if content.instructor %}
+            {% assign subheader = content.instructor %}
+            {% else %}
+            {% assign subheader = content.subtitle %}
+            {% endif %}
+            <h6 class="title font-weight-bold">{{ header }}</h6>
+            <h6 style="font-style: italic;">
+                <span>Instructed by </span>
+                {% if content.instructor_link %}<a href="{{ content.instructor_link }}">{% endif %}
+                {{ subheader }}
+                {% if content.instructor_link %}</a>{% endif %}
+            </h6>
+            <h6>{{ content.summary }}</h6>
+            <ul class="items">
+            {% for item in content.highlights %}
+            <li>
+                <span class="item">{{ item }}</span>
+            </li>
+            {% endfor %}
+            </ul>
+        </div>
+    </li>
+    {% endfor %}
+  </ul>

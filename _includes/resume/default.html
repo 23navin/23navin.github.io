@@ -1,6 +1,6 @@
 <ul class="card-text font-weight-light list-group list-group-flush">
-  {% assign work = data[1] | sort: 'startDate' | reverse %}
-  {% for content in work %}
+  {% assign section = data[1] | sort: 'startDate' | reverse %}
+  {% for content in section %}
   <li class="list-group-item">
     <div class="row">
       <div class="col-xs-2 cl-sm-2 col-md-2 text-center">
@@ -34,9 +34,20 @@
         </table>
       </div>
       <div class="col-xs-10 cl-sm-10 col-md-10 mt-md-0">
-        <h6 class="title font-weight-bold ml-md-4">{ {content.position }}</h6>
-        <h6 class="ml-md-4">{{ content.name }}</h6>
-        <h6 class="ml-md-4" style="font-style: italic;">{{ content.summary }}</h6>
+        {% if content.position %}
+        {% assign header = content.position %}
+        {% else %}
+        {% assign header = content.title %}
+        {% endif %}
+
+        {% if content.name %}
+        {% assign subheader = content.name %}
+        {% else %}
+        {% assign subheader = content.subtitle %}
+        {% endif %}
+        <h6 class="title font-weight-bold ml-md-4">{{ header }}</h6>
+        <h6 class="ml-md-4" style="font-style: italic;">{{ subheader }}</h6>
+        <h6 class="ml-md-4">{{ content.summary }}</h6>
         <ul class="items">
           {% for item in content.highlights %}
           <li>
