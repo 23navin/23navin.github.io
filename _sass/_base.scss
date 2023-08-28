@@ -49,11 +49,11 @@ table {
 
 a,
 table.table a {
-  color: var(--global-text-color);
+  color: var(--global-theme-color);
 
   &:hover {
-  color: var(--global-text-color);
   text-decoration: underline;
+  color: var(--global-theme-color);
   }
 
   &:hover:after :not(.nav-item.dropdown) {
@@ -167,7 +167,7 @@ blockquote {
   }
 }
 
-.post-date {
+.post-subtitle {
   margin-bottom: 2rem;
   font-size: 0.875rem;
 
@@ -849,8 +849,16 @@ html.transition *:after {
   transition-delay: 0 !important;
 }
 
+p{
+    a {
+      vertical-align: text-top;
+      font-size: 0.7rem;
+    }
+  }
+
 // Extra Markdown style (post Customization)
 .post {
+
   .post-meta {
     color: var(--global-text-color-light);
     font-size: 0.875rem;
