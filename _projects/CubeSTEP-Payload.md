@@ -75,7 +75,7 @@ I2cCore (class)
 
 ##### Bringing it all together
 
-With the libraries developed to provide the core functionality, the next step is to tie it all together into a functioning system using FreeRTOS. 
+With the libraries developed to provide the core functionality, the next step is to tie it all together into a functioning system using FreeRTOS.
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
@@ -107,7 +107,7 @@ The entire system is built on top of the 'i2c_scan' task and the i2c call functi
     <div class="col-sm mt-3 mt-md-0">
             {% include figure.html path="assets/img/firmware_task.png" title="FreeRTOS Task" class="img-fluid border border-dark rounded z-depth-1" %}
         <div class="caption">
-            The FreeRTOS task that handles recording system telemetry to the SPI Flash storage,
+            The FreeRTOS task that handles recording system telemetry to the SPI Flash storage.
         </div>
     </div>
 </div>
@@ -122,7 +122,7 @@ I used a Raspberry Pi 3 to simulate the OBC as the i2c master. I created a few C
     <div class="col-sm mt-3 mt-md-0">
             {% include figure.html path="assets/img/firmware_getlog.png" title="C++ Driver getlog" class="img-fluid border border-dark rounded z-depth-1" %}
         <div class="caption">
-            The FreeRTOS task that handles recording system telemetry to the SPI Flash storage,
+            I2C Driver code segment that requests and receives experiment result data.
         </div>
     </div>
 </div>
