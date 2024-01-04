@@ -8,7 +8,16 @@ category: Academic
 ---
 The CubeSat Technology Exploration Program (CubeSTEP) is a joint collaboration between Cal Poly Pomona (CPP) and NASA's Jet Propulsion Laboratory (JPL). The program recently received $900,000 in funding from NASA to carry out its mission[(link)](https://polycentric.cpp.edu/2023/08/nasa-awards-900k-to-cpp-space-defense-tech-and-security-news/). Our project was presented to the AIAA Science and Technology Forum and Exposition[(link)](https://arc.aiaa.org/doi/10.2514/6.2023-1879). I worked on the program during my '22-'23 school year at CPP.
 
-#### Mission Statement
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+            {% include figure.html path="assets/img/teamphoto.jpg" title="Team Photo" class="img-fluid border border-dark rounded z-depth-1" %}
+        <div class="caption">
+            Most of the CubeSTEP members with our adivising professor, Navid Nakhijiri, who is holding a 3d model of our satellite!
+        </div>
+    </div>
+</div>
+
+Mission Statement
 
 1. Develop a generic, yet fully-featured, CubeSat platform that future CPP projects can use as a foundation to advance their research.
 2. Utilize additive manufacturing to allow for custom payloads with minimal modifications to the platform.
@@ -85,7 +94,7 @@ I used a Raspberry Pi 3 to simulate the satellite's main computer as the i2c mas
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-            {% include figure.html path="assets/img/breadboard.png" title="Prototypr Breadboard" class="img-fluid border border-dark rounded z-depth-1" %}
+            {% include figure.html path="assets/img/breadboard.png" title="Breadboard Prototype" class="img-fluid border border-dark rounded z-depth-1" %}
         <div class="caption">
             Prototype of the payload processor being tested using a Raspberry pi.
         </div>
@@ -104,8 +113,6 @@ Using Altium Designer, I created a schematic that combined the ESP32's devkit bo
         </div>
     </div>
 </div>
-
-
 
 Note: Images on this website get compressed which makes this schematic hard to read. If you want to see it as a PDF, you can see it on GitHub[(link)](https://github.com/23navin/CubeSTEP-payload-pcb/blob/main/Schematic.pdf).
 

@@ -8,6 +8,15 @@ category: Academic
 ---
 The CubeSat Technology Exploration Program (CubeSTEP) is a joint collaboration between Cal Poly Pomona (CPP) and NASA's Jet Propulsion Laboratory (JPL). The program recently received $900,000 in funding from NASA to carry out its mission[(link)](https://polycentric.cpp.edu/2023/08/nasa-awards-900k-to-cpp-space-defense-tech-and-security-news/). Our project was presented to the AIAA Science and Technology Forum and Exposition[(link)](https://arc.aiaa.org/doi/10.2514/6.2023-1879). I worked on the program during my '23-'24 school year at CPP.
 
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+            {% include figure.html path="assets/img/teamphoto.jpg" title="Team Photo" class="img-fluid border border-dark rounded z-depth-1" %}
+        <div class="caption">
+            Most of the CubeSTEP members with our adivising professor, Navid Nakhijiri, who is holding a 3d model of our satellite!
+        </div>
+    </div>
+</div>
+
 Mission Statement
 
 1. Develop a generic, yet fully-featured, CubeSat platform that future CPP projects can use as a foundation to advance their research.
