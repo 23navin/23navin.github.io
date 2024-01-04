@@ -12,7 +12,7 @@ The CubeSat Technology Exploration Program (CubeSTEP) is a joint collaboration b
     <div class="col-sm mt-3 mt-md-0">
             {% include figure.html path="assets/img/teamphoto.jpg" title="Team Photo" class="img-fluid border border-dark rounded z-depth-1" %}
         <div class="caption">
-            Most of the CubeSTEP members with our adivising professor, Navid Nakhijiri, who is holding a 3d model of our satellite!
+            Most of the CubeSTEP members with our adivising professor, Navid Nakhjiri, who is holding a 3d model of our satellite!
         </div>
     </div>
 </div>
