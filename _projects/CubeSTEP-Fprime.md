@@ -1,9 +1,9 @@
 ---
 layout: page
 title: CubeSTEP Flight System
-subtitle: Academic Research Project, 2023
+subtitle: Academic Research Project, 2022-2023
 description: Flight Software developed for an academic research project involving a satellite using an ARM Cortex-M3 processor and JPL's open-source F-Prime C++ Framework.
-importance: 1
+importance: 2
 category: Academic
 ---
 The CubeSat Technology Exploration Program (CubeSTEP) is a joint collaboration between Cal Poly Pomona (CPP) and NASA's Jet Propulsion Laboratory (JPL). The program recently received $900,000 in funding from NASA to carry out its mission[(link)](https://polycentric.cpp.edu/2023/08/nasa-awards-900k-to-cpp-space-defense-tech-and-security-news/). Our project was presented to the AIAA Science and Technology Forum and Exposition[(link)](https://arc.aiaa.org/doi/10.2514/6.2023-1879). I worked on the program during my '23-'24 school year at CPP.

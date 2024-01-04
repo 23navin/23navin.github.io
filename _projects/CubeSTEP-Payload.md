@@ -1,12 +1,12 @@
 ---
 layout: page
-title: CubeSTEP Payload Processor
-subtitle: Academic Research Project, 2023
-description: ESP-32 Microcontroller sub-system component developed to manage the payload of the CubeSTEP satellite. This project included hardware, firmware, and driver development.
+title: CubeSTEP Payload Hardware and Firmware
+subtitle: Academic Research Project, 2022-2023
+description: ESP-32 Microcontroller sub-system developed to manage the payload of satellite designed for academic research. This project included hardware, firmware, and driver development.
 importance: 1
 category: Academic
 ---
-The CubeSat Technology Exploration Program (CubeSTEP) is a joint collaboration between Cal Poly Pomona (CPP) and NASA's Jet Propulsion Laboratory (JPL). The program recently received $900,000 in funding from NASA to carry out its mission[(link)](https://polycentric.cpp.edu/2023/08/nasa-awards-900k-to-cpp-space-defense-tech-and-security-news/). Our project was presented to the AIAA Science and Technology Forum and Exposition[(link)](https://arc.aiaa.org/doi/10.2514/6.2023-1879). I worked on the program during my '23-'24 school year at CPP.
+The CubeSat Technology Exploration Program (CubeSTEP) is a joint collaboration between Cal Poly Pomona (CPP) and NASA's Jet Propulsion Laboratory (JPL). The program recently received $900,000 in funding from NASA to carry out its mission[(link)](https://polycentric.cpp.edu/2023/08/nasa-awards-900k-to-cpp-space-defense-tech-and-security-news/). Our project was presented to the AIAA Science and Technology Forum and Exposition[(link)](https://arc.aiaa.org/doi/10.2514/6.2023-1879). I worked on the program during my '22-'23 school year at CPP.
 
 #### Mission Statement
 
@@ -25,83 +25,50 @@ The satellite had multiple computer systems that needed to be developed and inte
 
 My primary assignment had two aspects: to develop the Payload processor (ESP32-Pico-D4) and model its required functionality in the flight software (JPL's F-Prime) to allow the OBC to interface with the payload.
 
-This page will cover my experience developing the firmware for the ESP32 processor. See CubeSTEP Flight Software[(link)](/projects/CubeSTEP-Fprime) for information regarding the F-Prime development.
+This page will cover my experience developing the firmware for the ESP32 processor. See CubeSTEP Flight Software[(link)](/projects/CubeSTEP-Fprime) for commentary on F-Prime development.
 
 ---
 
-The firmware for the Payload Processor was developed using the PlatformIO extension for VS Code. This extension has all the functionality needed to build and upload code to the ESP32 microprocessor. The ESP32-Pico-D4 development kit was used to test and debug the firmware while the Payload component is being developed. The project's repository is available on GitHub[(link)](https://github.com/23navin/esp32-payload-development). The Payload Processor will often be referred to simply as 'the device.'
+Per the requirements, the payload processor needed to be able to record temperatures from the payload's 16 thermistors, send a 5V PWM signal to power the payload's heating element, and interact with the main computer over I2C. I was also given Espressif's ESP32-Pico-D4 to accomplish those requirements. The ESP32 is a microcontroller family from Espressif that is built around dual 32-bit Xtensa microprocessors. It is functionally similar to the more-popuar STM32 microcontroller family and ARM's Cortex-M microprocessors.
+
+Espressif's development tool, called ESP-IDF, has an official VS Code extention that I used to debug and build the firmware. All of the firmware's application code and hardware drivers were written by myself and directly on top of Espressif's provided APIs. I wanted to challenge myself to not depend on third-party libraries or online example code. Of course, I did reference many online resources and open-source repositories to learn concepts like I2C and FreeRTOS, but I tried to force myself to rely on the ESP32 and ESP-IDF's user guides as much as possible. Because of this, I am very proud of how lean and purpose-oriented the resulting code is. The project's repository can be viewed on GitHub[(link)](https://github.com/23navin/esp32-payload-development).
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
             {% include figure.html path="assets/img/daq.jpg" title="DAQ" class="img-fluid border border-dark rounded z-depth-1" %}
         <div class="caption">
-            A prototype of the payload processor being used to control and monitor the payload during testing
+            A prototype of the payload processor being used to control and monitor the payload during testing.
         </div>
     </div>
 </div>
 
-The assignment of developing the payload processor came with some requirements. It needed to be able to read temperatures from the payload's temperature sensors, set a power level for a payload element, store and retrieve data on the processor's onboard memory, transmit and receive data via I2C, and receive operational commands via I2C. To satisfy these specific requirements, certain libraries had to be developed. I was able to achieve some of the requirements by adapting open-source libraries but others had to be built from scratch.
+##### The Firmware
 
-##### Libraries that I made
+FreeRTOS handles the execution of the required functionality. Only three tasks were needed to cover everything: A task to handle I2C communication and execute commands received from the main computer, an experiment task to manage the PWM signal, and a logging task to record temperatures. Thanks to the ESP32 having a dual-core processor, the I2C task gets its own core while the experiment and logging tasks share the other core.
 
-Telemetry (struct)
-
-* Stores the payload's temperatures and heater's output level at a point in time
-* Has methods to set telemetry data and output the data as a string
-* Designed to hold samples of system temperature for periodical system checks and during experiment
-* Telemetry data will either eventually be transmitted over I2C or stored into a .csv log file
-
-FileCore (class)
-
-* Handles the internal flash storage over SPI
-* Has methods to create, write to, and read from a .csv file
-
-SensorCore (class)
-
-* Sample temperature values from 16 thermistors using on-board ADC
-* Can write data directly to a Telemetry struct via pointer.
-
-HeaterCore (class)
-
-* Creates a PWM output at a GPIO to control a payload element
-* Uses two timers to create a Trailing-Edge PWM signal that has a period of 12 seconds
-* The duty cycle and period can be set as needed by the experimen
-
-I2cCore (class)
-
-* Allows the OBC to communicate with the payload processor via I2C
-* The ESP32 acts as the slave
-* ESP32 expects telemetry data requests and commands to start and control the experiment
-
-##### Bringing it all together
-
-With the libraries developed to provide the core functionality, the next step is to tie it all together into a functioning system using FreeRTOS.
+The I2C task is very simple. It repeatedly calls a function from my I2C class to check the I2C buffer for incoming messages. If an incoming message is received, it will parse out an opcode that would be embedded in the first couple bits of the message and compare it to a list of defined opcodes. A unique feature of my I2C implementation is that opcodes can be added to a list within the object along with a pointer to a function once it has been instantiated. So if the opcode received over I2C is recognized, the object can directly call its corresponding function to finish the transaction. I tried to simplify the development process of altering the opcodes (and how they are executed) so that it is accessible to future CubeSTEP researchers who may not be familiar with C++ or even coding in general. If I were to implement this class today, I would do it in a more conventional way, but I was happy to take this opportunity to get more comfortable with pointers and type definitions.
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
             {% include figure.html path="assets/img/firmware_code.png" title="app_main" class="img-fluid border border-dark rounded z-depth-1" %}
         <div class="caption">
-            Firmware's app_main start up sequence. Intiatializes hardware drivers, sets up i2c calls, and starts 'i2c_scan' task.
+            app_main() including the procedure to add opcodes and their function handlers to the i2c object. The first parameter of ".install_handler" is the opcode and the second is a pointer to the function that will be called when the opcode is received over i2c.
         </div>
     </div>
 </div>
-
-The 'install_handler' funtion that is provided by the i2c slave class allows me to link a function to an opcode. For example, when the 'i2c_scan' task receives a message with the opcode '0x21', it will call the function 'i2c_restart_device' and pass through the message's data contents. The call function can receive the message's contents as a parameter and perform some actions accordingly. Most i2c functions are expected to return a one byte status message over i2c after they have completed their functionality.
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
             {% include figure.html path="assets/img/firmware_callfunction.png" title="I2C Call Function" class="img-fluid border border-dark rounded z-depth-1" %}
         <div class="caption">
-            An example i2c call function that can start, stop, and return the status of a task.
+            An example of an i2c call function that can start, stop, or return the status of a task.
         </div>
     </div>
 </div>
 
-When the above function is called by 'i2c_scan', it checks the parameter to see whether the master wants to start the 'plogger' task, stop the task, or receive whether the task is running or not. If the parameter does not correspond to any of those actions, it returns a one-byte 'invalid' message over i2c to indicate to the master that it did not perform any actiond despite receiving an operation request. If the parameter is '0x01', the function will first check that the task has not been started, then start the task and write a 'valid' byte over i2c indicating that the operation that was requested had been completed. If the task had already been started, the function will wrtie an 'invalid' byte over i2c to indicate that the operation could not be completed. A parameter of '0x02' uses the same dataflow to end the 'plogger' task upon request. Finally, a parameter of '0x03' will simply return a 'valid' or 'invalid' byte depending on if the task is running or not.
+Unlike the I2C task which is always running, the other two tasks run when their opcode is received over I2C. The experiment task uses two hardware timers to generate a PWM signal that ramps from a duty cycle of 0% to 100% over a period of time. The PWM signal goes to a solid state relay that supplies 5V to a heating element in the satellite's payload. The logging task reads from the 16 thermistors that are attached to the payload and records the temperatues, along with some relevent system telemetry, to SPI flash. A logging task is automatically created with the experiment task and gets deleted when the experiment is completed. A secondary logging task can also be started to passively log temperatures when an experiment is not active as well.
 
-Most i2c call functions behave similarly. The parameter value can be used to choose an action to be performed (like the above example), hold a 32-bit data value (such as a time value), or both (using one byte to define an action and the remaining three bytes to hold a value). The functions always return some value back over i2c, usually a confirmation/acknowledge byte or a 32-bit value.
-
-The entire system is built on top of the 'i2c_scan' task and the i2c call functions. The task is configured at 0 priority (idle) and is the only task that runs on core 0 aside from the call functions. 'i2c_scan' is only suspended when a call function is running. All other tasks, including the experiment and logging tasks, run on core 1 to minimize the time between an operation request being sent by the master device over i2c and the confirmation of completion being sent back over i2c to the master.
+All of the parameters of the experiment and logging task, such as experiment length and logging frequently, are variables and can be set via I2C. This allows the experiment to evolve as our testing team assesses how to best test the payload without ever needing to turn off the satellite.
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
@@ -112,25 +79,43 @@ The entire system is built on top of the 'i2c_scan' task and the i2c call functi
     </div>
 </div>
 
-The above function shows one of three FreeRTOS tasks that the system uses. 'exp_log' runs on an interval that is passed through as a parameter when the task is created. On each interval, the task records system telemetry (system time, temperature data derived from thermistors on the payload, and the duty cycle and period of the PWM battery heater signal). Two instances of this task are normally used. One is started on a longer interval to record ambient temperatures whenever the device is not in sleep mode. The other is started with a short interval to record detail temperature telemetry during a payload experiment. The other two tasks are 'exp_run', which performs an experiment sequence by increasing the PWM duty cycle over time, and 'i2c_scan' which checks the i2c receive buffers for operation requests from the master device.
+##### How I tested it
 
-##### How I tested functionality
-
-I used a Raspberry Pi 3 to simulate the OBC as the i2c master. I created a few C++ scripts using the wiringPi library to model all the i2c behavior the the slave should expect from the OBC. Fuctionally, the scripts can package an opcode and parameter, send it over i2c to the device, and receive messages from the device per the i2c communications protocol I developed.
+I used a Raspberry Pi 3 to simulate the satellite's main computer as the i2c master. I created a few C++ scripts using the wiringPi library to model all the i2c behavior that the slave should expect from the main computer. Fuctionally, the scripts can package an opcode and parameter, send it over i2c to the device, and receive messages from the device per the communications protocol I developed.
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-            {% include figure.html path="assets/img/firmware_getlog.png" title="C++ Driver getlog" class="img-fluid border border-dark rounded z-depth-1" %}
+            {% include figure.html path="assets/img/breadboard.png" title="Prototypr Breadboard" class="img-fluid border border-dark rounded z-depth-1" %}
         <div class="caption">
-            I2C Driver code segment that requests and receives experiment result data.
+            Prototype of the payload processor being tested using a Raspberry pi.
         </div>
     </div>
 </div>
 
-The above code segment is part of a script that offloads the telemetry log from the device. Not shown in the image, is an i2c sequence to establish a connection with the device which happens prior. In a loop, the script requests the device to send it one line of the experiment log file. Upon receiving the line, it saves it to a local log file. It also checks for erroneous bytes that were often read from the devices' i2c transmit buffers. The device will send a line from the log file in sequential order until the last line. Once the file has been fully read, it will send an 'End of File' message so that the master can stop asking for more lines. The entire process can take nearly 30 seconds to transmit a file of 5000 lines.
+##### The Hardware
 
-##### Next Steps
+Using Altium Designer, I created a schematic that combined the ESP32's devkit board and the added electronics for the thermistors and 5V PWM output.
 
-The project is functionally complete but there is still plenty to do. What I mean is that all the technical requirements that I was given have been satisfied and that the firmware is fully featured and operational. However, it is not yet in a state where it can be uploaded onto a processor and launched into space. The firmware itself needs more system and error checks and with error resolution. Additionally, the Payload Processor's hardware needs to be developed from an ESP32 devkit on a breadboard to a bespoke PCB designed for the PC104 hardware platform.
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+            {% include figure.html path="assets/img/schematic.png" title="Schematic" class="img-fluid border border-dark rounded z-depth-1" %}
+        <div class="caption">
+            Schematic of the Payload Processor.
+        </div>
+    </div>
+</div>
 
-Personally, I am very satisfied with how I left the project. The entire task of making the ESP32 act as an in-between for the payload's temperature sensors and the main computer was a hard problem to be thrown into. Building each piece of functionality that was required to make it work was a new challenge that I only overcame after many sleepless nights of studying and debugging. I believe that the remaining work can be transferred to next years' team without too much difficulty. Furthermore, I will likely continue to work on the firmware and look into the hardware for my own personal edification.
+
+
+Note: Images on this website get compressed which makes this schematic hard to read. If you want to see it as a PDF, you can see it on GitHub[(link)](https://github.com/23navin/CubeSTEP-payload-pcb/blob/main/Schematic.pdf).
+
+The satellite is built on the PC/104-Plus spec which has requirements for the PCB's outline, mounting holes, and bus connector. This was my first time designing a PCB so I am sure that it could be done better. I'd definitely want to revisit this project in the future to see if there are any glaring mistakes.
+
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+            {% include figure.html path="assets/img/pcbmodel.png" title="3D PCB Model" class="img-fluid border border-dark rounded z-depth-1" %}
+        <div class="caption">
+            A 3D model of the Payload Processor PCB from Altium. The white boxes represent the 2-pin JST headers for the thermistors. 
+        </div>
+    </div>
+</div>
