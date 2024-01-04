@@ -114,7 +114,7 @@ Using Altium Designer, I created a schematic that combined the ESP32's devkit bo
     </div>
 </div>
 
-Note: Images on this website get compressed which makes this schematic hard to read. If you want to see it as a PDF, you can see it on GitHub[(link)](https://github.com/23navin/CubeSTEP-payload-pcb/blob/main/Schematic.pdf).
+Note: Images on this website get compressed which makes this schematic hard to read. If you want to see it as a PDF, its also on GitHub[(link)](https://github.com/23navin/CubeSTEP-payload-pcb/blob/main/Schematic.pdf).
 
 The satellite is built on the PC/104-Plus spec which has requirements for the PCB's outline, mounting holes, and bus connector. This was my first time designing a PCB so I am sure that it could be done better. I'd definitely want to revisit this project in the future to see if there are any glaring mistakes.
 
