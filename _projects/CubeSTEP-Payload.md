@@ -107,7 +107,7 @@ Using Altium Designer, I created a schematic that combined the ESP32's devkit bo
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-            {% include figure.html path="assets/img/schematic.png" title="Schematic" class="img-fluid border border-dark rounded z-depth-1" %}
+            {% include figure.html path="assets/img/pcb_schematic.png" title="Schematic" class="img-fluid border border-dark rounded z-depth-1" %}
         <div class="caption">
             Schematic of the Payload Processor.
         </div>
@@ -120,7 +120,7 @@ The satellite is built on the PC/104-Plus spec which has requirements for the PC
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-            {% include figure.html path="assets/img/pcbmodel.png" title="3D PCB Model" class="img-fluid border border-dark rounded z-depth-1" %}
+            {% include figure.html path="assets/img/pcb_model.png" title="3D PCB Model" class="img-fluid border border-dark rounded z-depth-1" %}
         <div class="caption">
             A 3D model of the Payload Processor PCB from Altium. The white boxes represent the 2-pin JST headers for the thermistors. 
         </div>
