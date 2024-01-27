@@ -120,9 +120,9 @@ The satellite is built on the PC/104-Plus spec which has requirements for the PC
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-            {% include figure.html path="assets/img/pcb_model.png" title="3D PCB Model" class="img-fluid border border-dark rounded z-depth-1" %}
+            {% include figure.html path="assets/img/pcb_top.png" title="PCB Prototype" class="img-fluid border border-dark rounded z-depth-1" %}
         <div class="caption">
-            A 3D model of the Payload Processor PCB from Altium. The white boxes represent the 2-pin JST headers for the thermistors. 
+            A prototype of the Payload Processor's PCB, fully assembled except for the PC/104-plus' 104-pin PCI connector that would be at the top. 
         </div>
     </div>
 </div>
