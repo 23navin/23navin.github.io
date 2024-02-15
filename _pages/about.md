@@ -3,7 +3,7 @@ layout: about
 title: about
 permalink: /
 nav: false
-subtitle: Hayward, California
+subtitle: Hayward, Calif.
 profile:
   align: right
   image: prof_pic.jpg
