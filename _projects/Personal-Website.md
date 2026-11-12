@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Website Portfolio
-description: Development log for this website.
+description: How I made this website.
 img: 
 importance: 2
 category: Personal

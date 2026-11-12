@@ -4,11 +4,11 @@
 
 title: blank # the website title (if blank, full name will be used instead)
 first_name: Benjamin
-middle_name: Navin
+middle_name:
 last_name: James
 email:
 description: > # the ">" symbol means to ignore newlines until "footer_text:"
-  Personal Website of Benjamin Navin James
+  Personal Website of Benjamin James
 footer_text: >
 keywords: benjamin navin james, benjamin james, benjamin navin, benjamin, navin, james, cal poly pomona, cal poly, cpp, embedded systems, embedded software, software development, software engineer, computer engineering, portfolio-website  # add your own keywords or leave empty
 
